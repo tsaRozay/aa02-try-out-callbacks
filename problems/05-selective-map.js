@@ -36,19 +36,33 @@ console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isPositive, square));
 // [-10, 16, 49, 36, -2, -9]
 *******************************************************************************/
 
-function selectiveMap(array, selector, mapper) {
-        let newArray = [];
-    
-        for (let i = 0; i < array.length; i++) {
-            if (conditionCb(array[i])) {
-                newArray.push(transformCb(array[i]));
-            } else {
-                newArray.push(array[i]);
-            }
+function selectiveMap(array, conditionCb, transformCb) {
+    let newArray = [];
+
+    for(let i = 0; i < array.length;i++){
+        if(conditionCb(array[i]) === true){
+            newArray.push(transformCb(array[i]));
+        } else {
+            newArray.push(array[i]);
         }
-    
-        return newArray;
     }
+        return newArray;
+}
+        
+
+// }
+//     let newArray = [];
+
+//     for (let i = 0; i < array.length; i++) {
+//         if (conditionCb(array[i]) === true) {
+//             newArray.push(transformCb(array[i]));
+//         } else {
+//             newArray.push(array[i]);
+//         }
+//     }
+
+//     return newArray;
+// }
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 try {
